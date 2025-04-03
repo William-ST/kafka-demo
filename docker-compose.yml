@@ -14,8 +14,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 1G
+          cpus: '0.25'
+          memory: 250m
     networks:
       - kafka-network
 
@@ -45,8 +45,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 1G
+          cpus: '0.25'
+          memory: 250m
     networks:
       - kafka-network
 
@@ -63,8 +63,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 1G
+          cpus: '0.25'
+          memory: 250m
     depends_on:
       - kafka
     networks:
@@ -79,8 +79,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
-          memory: 1G
+          cpus: '0.25'
+          memory: 250m
     ports:
       - "8888:8888"
     networks:
