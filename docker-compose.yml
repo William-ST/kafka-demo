@@ -11,6 +11,11 @@ services:
       - "2181:2181"
     volumes:
       - zookeeper_data:/var/lib/zookeeper/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 1G
     networks:
       - kafka-network
 
@@ -37,6 +42,11 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
     volumes:
       - kafka_data:/var/lib/kafka/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 1G
     networks:
       - kafka-network
 
@@ -50,6 +60,11 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 1G
     depends_on:
       - kafka
     networks:
@@ -61,6 +76,11 @@ services:
       - kafka
     environment:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092  # Conexión a Kafka
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 1G
     ports:
       - "8888:8888"
     networks:
