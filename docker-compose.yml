@@ -49,6 +49,7 @@ services:
           memory: 250m
     networks:
       - kafka-network
+    entrypoint: [ "sh", "-c", "until nc -z zookeeper 2181; do echo waiting for zookeeper; sleep 3; done; /etc/confluent/docker/run" ]
 
   # Kafka UI para administración
   kafka-ui:
