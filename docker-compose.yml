@@ -14,8 +14,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: 250m
+          cpus: '1.0'
+          memory: 1024M
     networks:
       - kafka-network
 
@@ -45,8 +45,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: 250m
+          cpus: '1.0'
+          memory: 1024M
     networks:
       - kafka-network
     entrypoint: [ "sh", "-c", "until nc -z zookeeper 2181; do echo waiting for zookeeper; sleep 3; done; /etc/confluent/docker/run" ]
@@ -64,8 +64,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.25'
-          memory: 250m
+          cpus: '1.0'
+          memory: 1024M
     depends_on:
       - kafka
     networks:
